@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public void tellJoke(View view) {
 //        Joke joke = new Joke();
 //        String textJoke = joke.getJoke();
-        new EndpointsAsyncTask(this).execute();
+//        new EndpointsAsyncTask(this).execute();
 
         String text = getString(R.string.show_free_message);
 //        Toast.makeText(this, "derp1"+text, Toast.LENGTH_SHORT).show();
