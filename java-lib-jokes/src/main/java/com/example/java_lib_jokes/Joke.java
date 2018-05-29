@@ -1,51 +1,28 @@
 package com.example.java_lib_jokes;
 
-//import java.io.IOException;
-//import javax.naming.Context;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Joke {
 
+    private List<String> jokeList = new ArrayList<>();
+
     public String getJoke() {
-        return "this is a funny joke";
+        Random random = new Random();
+        fillListJokes();
+        return jokeList.get(random.nextInt(jokeList.size()));
     }
 
-//    class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
-//        private static MyApi myApiService = null;
-//        private Context context;
-//
-//        @Override
-//        protected String doInBackground(Pair<Context, String>... params) {
-//            if(myApiService == null) {  // Only do this once
-//                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
-//                        new AndroidJsonFactory(), null)
-//                        // options for running against local devappserver
-//                        // - 10.0.2.2 is localhost's IP address in Android emulator
-//                        // - turn off compression when running against local devappserver
-//                        .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-//                        .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-//                            @Override
-//                            public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-//                                abstractGoogleClientRequest.setDisableGZipContent(true);
-//                            }
-//                        });
-//                // end options for devappserver
-//
-//                myApiService = builder.build();
-//            }
-//
-//            context = params[0].first;
-//            String name = params[0].second;
-//
-//            try {
-//                return myApiService.sayHi(name).execute().getData();
-//            } catch (IOException e) {
-//                return e.getMessage();
-//            }
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String result) {
-//            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-//        }
-//    }
+    private void fillListJokes(){
+        jokeList.add("This is a joke 1");
+        jokeList.add("This is a joke 2");
+        jokeList.add("This is a joke 3");
+        jokeList.add("This is a joke 4");
+        jokeList.add("This is a joke 5");
+        jokeList.add("This is a joke 6");
+        jokeList.add("This is a joke 7");
+        jokeList.add("This is a joke 8");
+        jokeList.add("This is a joke 9");
+    }
 }
