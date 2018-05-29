@@ -1,15 +1,19 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.example.android_library.ShowJokeActivity;
-import com.example.java_lib_jokes.Joke;
+//import com.example.java_lib_jokes.Joke;
+//import com.udacity.gradle.builditbigger.free.EndpointsAsyncTask;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -44,14 +48,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Joke joke = new Joke();
-        String textJoke = joke.getJoke();
+//        Joke joke = new Joke();
+//        String textJoke = joke.getJoke();
+        new EndpointsAsyncTask(this).execute();
 
         String text = getString(R.string.show_free_message);
-        Toast.makeText(this, "derp1"+text+textJoke, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "derp1"+text, Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, ShowJokeActivity.class);
-        intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, text+textJoke);
+        intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, text);
         startActivity(intent);
     }
 }
