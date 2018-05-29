@@ -1,7 +1,10 @@
 apply plugin: 'java-library'
+apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    endpointsServer project(path: ':backend', configuration: 'endpoints')
 }
 
 sourceCompatibility = "1.7"
