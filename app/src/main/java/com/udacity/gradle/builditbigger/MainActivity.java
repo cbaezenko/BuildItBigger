@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.android_library.ShowJokeActivity;
+import com.example.java_lib_jokes.Joke;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        Joke joke = new Joke();
+        String textJoke = joke.getJoke();
+
         String text = getString(R.string.show_free_message);
-        Toast.makeText(this, "derp1"+text, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "derp1"+text+textJoke, Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(this, ShowJokeActivity.class);
-        intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, text);
+        intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, text+textJoke);
         startActivity(intent);
     }
 }
