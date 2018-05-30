@@ -1,9 +1,11 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+
+//import com.udacity.gradle.builditbigger.free.EndpointsAsyncTask;
+
 import com.udacity.gradle.builditbigger.R;
 
 /**
@@ -76,7 +81,9 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onAdClosed() {
                 // Code to be executed when when the interstitial ad is closed.
-                new EndpointsAsyncTask(getContext()).execute();
+                com.udacity.gradle.builditbigger.EndpointsAsyncTask endpointsAsyncTask = new com.udacity.gradle.builditbigger.EndpointsAsyncTask(getContext());
+                endpointsAsyncTask.execute(new Pair<Context, String>(getContext(), "Manfred"));
+//                new EndpointsAsyncTask(getContext()).execute();
 
                 Intent intent = new Intent(getContext(), ShowJokeActivity.class);
                 intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, "PEDRO");

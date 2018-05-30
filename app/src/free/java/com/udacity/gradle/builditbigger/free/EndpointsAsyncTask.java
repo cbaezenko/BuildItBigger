@@ -1,8 +1,9 @@
-package com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -13,18 +14,17 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
-    private static final String TAG = "EndpointsAsyncTask";
     private Context context;
 
-    public EndpointsAsyncTask(Context context){
+    public EndpointsAsyncTask(Context context) {
         this.context = context;
     }
 
     @Override
-    protected String doInBackground(Void... voids) {
-        if(myApiService == null) {  // Only do this once
+    protected String doInBackground(Pair<Context, String>... params) {
+        if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -41,8 +41,12 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
             myApiService = builder.build();
         }
+
+//        context = params[0].first;
+//        String name = params[0].second;
+
         try {
-            return myApiService.sayHi("Pedro").execute().getData();
+            return myApiService.sayHi("PEDRO").execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -50,7 +54,8 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Log.d(TAG, "show the result"+result);
+        super.onPostExecute(result);
+        Log.d("TAG", "the result is "+result);
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
