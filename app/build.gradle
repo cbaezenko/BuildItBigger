@@ -78,6 +78,7 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
 
+//    implementation project(":backend")
     implementation project(":android-library")
     implementation project(":java-lib-jokes")
 //    classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
