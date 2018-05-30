@@ -34,7 +34,8 @@ dependencies {
 //    implementation project(":java-lib-jokes")
 }
 
-//appengine {
-//    deploy{
-//    httpAddress = "0.0.0.0"}
-//}
+appengine {
+    run {
+        host = "0.0.0.0"
+    }
+}
