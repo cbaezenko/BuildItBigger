@@ -1,11 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
+import com.example.android_library.ShowJokeActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -13,6 +15,8 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
+
+import static java.security.AccessController.getContext;
 
 class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
@@ -55,6 +59,11 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+
+        Intent intent = new Intent(context, ShowJokeActivity.class);
+        intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, result);
+        context.startActivity(intent);
+
         Log.d("TAG", "the result is "+result);
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }

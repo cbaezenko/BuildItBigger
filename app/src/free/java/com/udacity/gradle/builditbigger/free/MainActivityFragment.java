@@ -22,6 +22,8 @@ import com.google.android.gms.ads.MobileAds;
 
 import com.udacity.gradle.builditbigger.R;
 
+import static java.security.AccessController.getContext;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -85,9 +87,9 @@ public class MainActivityFragment extends Fragment {
                 endpointsAsyncTask.execute(new Pair<Context, String>(getContext(), "Manfred"));
 //                new EndpointsAsyncTask(getContext()).execute();
 
-                Intent intent = new Intent(getContext(), ShowJokeActivity.class);
-                intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, "PEDRO");
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), ShowJokeActivity.class);
+//                intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, "PEDRO");
+//                startActivity(intent);
             }
         });
     }

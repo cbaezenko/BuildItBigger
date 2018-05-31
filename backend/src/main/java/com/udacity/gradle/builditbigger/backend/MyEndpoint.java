@@ -1,13 +1,9 @@
 package com.udacity.gradle.builditbigger.backend;
 
-//import com.example.java_lib_jokes.Joke;
-//import com.example.java_lib_jokes.Joke;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
-
-//import javax.inject.Named;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -25,14 +21,7 @@ public class MyEndpoint {
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
-
+        //response.setData("Hi, " + name);
         return response;
     }
-
-//    @ApiMethod(name = "getJoke")
-//    public MyJoke getJoke(MyJoke myJoke){
-//        //MyJoke joke = new MyJoke();
-//        return myJoke;
-//    }
 }
