@@ -19,8 +19,8 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        Context appContDext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.android_library.test", appContext.getPackageName());
+        assertEquals("com.example.android_library.test", appContDext.getPackageName());
     }
 }

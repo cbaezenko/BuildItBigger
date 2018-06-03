@@ -9,9 +9,10 @@ public class Joke {
     private List<String> jokeList = new ArrayList<>();
 
     public String getJoke() {
-        Random random = new Random();
+//        Random random = new Random();
         fillListJokes();
-        return jokeList.get(random.nextInt(jokeList.size()));
+        return jokeList.get(1);
+                //jokeList.get(random.nextInt(jokeList.size()));
     }
 
     private void fillListJokes(){

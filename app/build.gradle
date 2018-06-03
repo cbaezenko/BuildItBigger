@@ -67,6 +67,7 @@ dependencies {
 
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:support-core-utils:27.1.1"
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
 
     implementation 'com.google.api-client:google-api-client:1.23.0'
@@ -82,4 +83,12 @@ dependencies {
     implementation project(":android-library")
     implementation project(":java-lib-jokes")
 //    classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+
+//    testImplementation 'junit:junit:4.12'
+
+    //Testing-only dependencies
+    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
