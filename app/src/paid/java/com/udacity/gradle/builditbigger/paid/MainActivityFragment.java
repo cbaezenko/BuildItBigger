@@ -27,14 +27,6 @@ public class MainActivityFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         initButtonShowJoke(root);
 
-//        AdView mAdView = (AdView) root.findViewById(R.id.adView);
-//        // Create an ad request. Check logcat output for the hashed device ID to
-//        // get test ads on a physical device. e.g.
-//        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-//        AdRequest adRequest = new AdRequest.Builder()
-//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-//                .build();
-//        mAdView.loadAd(adRequest);
         return root;
     }
 
@@ -43,9 +35,9 @@ public class MainActivityFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-//             Intent intent = new Intent(getContext(), ShowJokeActivity.class);
-//             intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, "PEDRO");
-//             startActivity(intent);
+
+                EspressoIdlingResource.increment();
+
                 com.udacity.gradle.builditbigger.EndpointsAsyncTask endpointsAsyncTask = new com.udacity.gradle.builditbigger.EndpointsAsyncTask(getContext());
                 endpointsAsyncTask.execute(new Pair<Context, String>(getContext(), "Manfred"));
             }

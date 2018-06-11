@@ -82,6 +82,9 @@ public class MainActivityFragment extends Fragment {
 
             @Override
             public void onAdClosed() {
+
+                EspressoIdlingResource.increment();
+
                 // Code to be executed when when the interstitial ad is closed.
                 com.udacity.gradle.builditbigger.EndpointsAsyncTask endpointsAsyncTask = new com.udacity.gradle.builditbigger.EndpointsAsyncTask(getContext());
                 endpointsAsyncTask.execute(new Pair<Context, String>(getContext(), "Manfred"));

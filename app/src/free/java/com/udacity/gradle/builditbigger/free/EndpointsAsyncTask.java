@@ -46,9 +46,6 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             myApiService = builder.build();
         }
 
-//        context = params[0].first;
-//        String name = params[0].second;
-
         try {
             return myApiService.sayHi("PEDRO").execute().getData();
         } catch (IOException e) {
@@ -60,11 +57,13 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
+
         Intent intent = new Intent(context, ShowJokeActivity.class);
         intent.putExtra(ShowJokeActivity.SHOW_TEXT_JOKE, result);
         context.startActivity(intent);
 
         Log.d("TAG", "the result is "+result);
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        EspressoIdlingResource.decrement();
+
     }
 }
