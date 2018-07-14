@@ -1,8 +1,9 @@
-package com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger;
 
 import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -30,6 +31,7 @@ import com.udacity.gradle.builditbigger.R;
 
 
 @RunWith(AndroidJUnit4.class)
+@LargeTest
 public class CheckDataRequestPaid {
 
     @Rule
